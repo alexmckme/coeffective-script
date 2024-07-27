@@ -47,7 +47,7 @@ def db_row_update(extract_row_id, supabase):
 def is_time_between(starting_hour, ending_hour):
     local_time = datetime.now(pytz.timezone("Europe/Paris")).time()
     begin_hour_time = time(starting_hour, 0)
-    end_hour_time = time(ending_hour, 0)
+    end_hour_time = time(ending_hour, 29)
     if begin_hour_time < end_hour_time:
         return local_time >= begin_hour_time and local_time <= end_hour_time
     else: # crosses midnight
