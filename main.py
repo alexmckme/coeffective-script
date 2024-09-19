@@ -83,9 +83,11 @@ for user in response_coeffective_users.data:
                             current_dt = datetime.now(pytz.timezone("Europe/Paris"))
                             current_dt_string = current_dt.strftime("%d/%m/%Y %H:%M:%S")
                             updatetab_data_list.append([extract["onglet_id"], extract["extract_type"], extract["report_id"], current_dt_string, "SUCCESS"])
+                            time_two.sleep(1)
 
                         except:
                             updatetab_data_list.append([extract["onglet_id"], extract["extract_type"], extract["report_id"], "ERROR", "ERROR"])
+                            time_two.sleep(1)
                             continue
 
                     elif extract["extract_type"] == "salesforce-ma":
@@ -99,9 +101,11 @@ for user in response_coeffective_users.data:
                             current_dt = datetime.now(pytz.timezone("Europe/Paris"))
                             current_dt_string = current_dt.strftime("%d/%m/%Y %H:%M:%S")
                             updatetab_data_list.append([extract["onglet_id"], extract["extract_type"], extract["report_id"], current_dt_string, "SUCCESS"])
+                            time_two.sleep(1)
 
                         except:
                             updatetab_data_list.append([extract["onglet_id"], extract["extract_type"], extract["report_id"], "ERROR", "ERROR"])
+                            time_two.sleep(1)
                             continue
 
                     elif extract["extract_type"] == "flamingo":
@@ -143,12 +147,14 @@ for user in response_coeffective_users.data:
                                         updatetab_data_list.append(
                                         [extract["onglet_id"], extract["extract_type"], extract["report_id"], current_dt_string,
                                         "SUCCESS"])
+                                        time_two.sleep(1)
 
                         except Exception as error:
                             if isinstance(error, TSC.server.endpoint.NotSignedInError):
                                 print("Problème avec le token Tableau")
                             print(error)
                             updatetab_data_list.append([extract["onglet_id"], extract["extract_type"], extract["report_id"], "ERROR", "ERROR"])
+                            time_two.sleep(1)
                             continue
 
             updatetab_data_df = pd.DataFrame(np.array(updatetab_data_list), columns=["Sheet Tab GID", "Report Type", "Report ID", "Last auto refesh date", "Last auto refresh status"])
