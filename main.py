@@ -158,5 +158,6 @@ for user in response_coeffective_users.data:
                             continue
 
             updatetab_data_df = pd.DataFrame(np.array(updatetab_data_list), columns=["Sheet Tab GID", "Report Type", "Report ID", "Last auto refesh date", "Last auto refresh status"])
+            updatetab_to_update.clear()
             gd.set_with_dataframe(updatetab_to_update, updatetab_data_df)
             time_two.sleep(1)
