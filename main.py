@@ -44,7 +44,7 @@ for user in response_coeffective_users.data:
             tableau_auth = TSC.PersonalAccessTokenAuth(user["tableau_personal_token_name"],
                                                        user["tableau_personal_token_value"],
                                                        site_id='avivkugawana')
-            server = TSC.Server('https://eu-west-1a.online.tableau.com/', use_server_version=True)
+            server = TSC.Server('https://eu-west-1a.online.tableau.com', use_server_version=True)
 
             req_option_user = TSC.RequestOptions(pagesize=1000)
             req_option_user.filter.add(TSC.Filter(TSC.RequestOptions.Field.OwnerName,
